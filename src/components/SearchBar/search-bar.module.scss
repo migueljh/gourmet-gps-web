@@ -1,0 +1,32 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.searchBarInputSearchContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  border: 1px solid $lavender-color;
+  padding: 16px;
+  max-height: 52px;
+  height: 100%;
+  border-radius: 8px;
+  box-sizing: border-box;
+  outline: 0px;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  align-items: center;
+  column-gap: 24px;
+  font-weight: 500;
+
+  .searchBarInputSearch {
+    height: 40px;
+    border: none;
+    width: 100%;
+    outline: 0;
+  }
+
+  &:hover {
+    border: 1px solid $primary-color;
+    @include hoverTransition();
+  }
+}

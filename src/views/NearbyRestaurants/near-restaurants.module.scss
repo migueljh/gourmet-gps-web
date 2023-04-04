@@ -1,0 +1,62 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.nearByRestaurantsLandingWrapper {
+  width: 100%;
+  padding: 0px 16px;
+
+  .nearByRestaurantsButtonToShowModal {
+    background-color: #fff;
+    border: 1px solid $lavender-color;
+    padding: 16px;
+    max-height: 52px;
+    height: 100%;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: 0px;
+    width: 100%;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:hover {
+      border: 1px solid $primary-color;
+      @include hoverTransition();
+    }
+
+    @media screen and (min-width: 560px) {
+      column-gap: 24px;
+    }
+  }
+
+  .nearByRestaurantsSpinnerContainer {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nearByRestaurantsParentRestaurantList {
+    display: grid;
+    padding-inline-start: 0px;
+    gap: 16px;
+
+    @media screen and (min-width: 560px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .nearByRestaurantsList {
+    list-style: none;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 560px) {
+    padding: 0;
+  }
+}

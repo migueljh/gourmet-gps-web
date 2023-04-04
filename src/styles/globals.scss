@@ -1,0 +1,57 @@
+@use './variables' as *;
+
+::-moz-selection {
+  background: $primary-color;
+  color: white;
+}
+
+::selection {
+  background: $primary-color;
+  color: #fff;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $dark-blue;
+  background-color: white;
+}
+
+input {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  box-shadow: 0 0 0 1000px #fff inset;
+  background-color: #fff;
+  background: #fff;
+  color: $dark-blue;
+}
+button {
+  color: $dark-blue;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+h1 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}

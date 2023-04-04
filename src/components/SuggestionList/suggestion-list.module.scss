@@ -1,0 +1,30 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.suggestionListParent {
+  padding-inline-start: 0px;
+
+  .suggestionList {
+    list-style-type: none;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ebebff;
+  }
+
+  .suggestionListSelectableElement {
+    width: 100%;
+    text-align: left;
+    background-color: #fff;
+    color: $dark-blue;
+    border: none;
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+
+    &:hover {
+      color: $primary-color;
+      font-weight: 600;
+      @include hoverTransition();
+    }
+  }
+}

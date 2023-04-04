@@ -1,0 +1,82 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.searchModalWrapper {
+  position: fixed;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px 16px;
+  width: calc(100% - 16px);
+  min-height: 500px;
+  z-index: 50;
+  border-radius: 8px;
+
+  .searchModalTitle {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    font-size: 24px;
+    font-style: normal;
+    letter-spacing: 0em;
+    line-height: 32px;
+    text-decoration: inherit;
+    text-transform: inherit;
+    margin-bottom: 8px;
+  }
+
+  .searchModalNoResults {
+    margin-top: 16px;
+  }
+
+  .searchModalCurrentAddress {
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #fff;
+    border: none;
+    width: 100%;
+    text-align: left;
+    color: $dark-blue;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    .searchModalActiveLocation {
+      color: $primary-color;
+      font-weight: 600;
+    }
+
+    .searchModalNotActiveLocation {
+      color: $dark-blue;
+    }
+  }
+
+  .searchModalGreyLine {
+    border-bottom: 1px solid #ebebff;
+  }
+
+  .searchModalSpinnerContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  @media screen and (min-width: 560px) {
+    width: 500px;
+  }
+}
+
+.searchModalOpacityBackground {
+  background-color: rgba(22, 22, 61, 0.56);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+}
