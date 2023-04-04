@@ -23,8 +23,14 @@ VITE_MAPBOX_API_KEY=pk.eyJ1IjoibWlndWVsaG56IiwiYSI6ImNsZnU5eTVrdzA4dnEzZmx1cGVra
 
 VITE_GOURMET_GPS_API_BASE_URL=https://gourmet-gps-service.onrender.com
 
+To install packages run:
+
+yarn install
+
 To run this project do:
 
 yarn run dev
+
+Next, check your console and next to Local label you will see the address this project is running at
 
 PS: Most of the logos come from <https://undraw.co/illustrations> and Figma community files from users who have left them for free use.
