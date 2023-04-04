@@ -1,4 +1,4 @@
-import { IconsInterface } from "../interfaces/icons.interface";
+import { IconsInterface } from "../interfaces";
 
 export const LocationIcon = ({
   color = "#F8884F",

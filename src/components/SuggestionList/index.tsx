@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SuggestionsListInterface } from "../../interfaces/search-modal.interface";
+import { SuggestionsListInterface } from "../../interfaces";
 
 import { LocationIcon } from "../../icons";
 

@@ -2,7 +2,7 @@ import { geocodeAddress } from "../services/locationService";
 import {
   AddressSuggestionInterface,
   AddressSuggestionResponseInterface,
-} from "../interfaces/location.interface";
+} from "../interfaces";
 
 export const getAddressSuggestions = async (
   input: string

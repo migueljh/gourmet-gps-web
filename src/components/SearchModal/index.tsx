@@ -21,7 +21,7 @@ import SuggestionsList from "../SuggestionList/index";
 import {
   SearchModalInterface,
   SuggestionInterface,
-} from "../../interfaces/search-modal.interface";
+} from "../../interfaces";
 
 import styles from "./search-modal.module.scss";
 

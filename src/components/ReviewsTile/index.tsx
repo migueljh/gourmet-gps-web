@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ReviewInfoInterface } from "../../interfaces/reviews.interface";
+import { ReviewInfoInterface } from "../../interfaces";
 
 import { PeopleReviewIcon } from "../../icons";
 

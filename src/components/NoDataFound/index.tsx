@@ -2,7 +2,7 @@ import React from "react";
 
 import { NoDataIcon } from "../../icons";
 
-import { NoDataFoundInterface } from "../../interfaces/no-data.interface";
+import { NoDataFoundInterface } from "../../interfaces";
 
 import styles from "./no-data-found.module.scss";
 

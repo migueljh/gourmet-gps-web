@@ -1,3 +1,4 @@
+export * from "./icons.interface";
 export * from "./location.interface";
 export * from "./no-data.interface";
 export * from "./restaurant.interface";
