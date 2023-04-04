@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import { SearchBarInterface } from '../../interfaces';
+import { SearchBarInterface } from "../../interfaces";
 
-import styles from './search-bar.module.scss';
-import { LocationIcon } from '../../Icons/location.icons';
+import { LocationIcon } from "../../icons";
 
-const SearchBar = ({ value, onChange, placeholder }: SearchBarInterface): JSX.Element => {
+import styles from "./search-bar.module.scss";
+
+const SearchBar = ({
+  value,
+  onChange,
+  placeholder,
+}: SearchBarInterface): JSX.Element => {
   return (
     <div className={styles.searchBarInputSearchContainer}>
       <input

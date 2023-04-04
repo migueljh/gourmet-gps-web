@@ -37,5 +37,10 @@ const locationSlice = createSlice({
   },
 });
 
-export const { setSuggestions, setSelectedLocation, setLatitude, setLongitude } = locationSlice.actions;
+export const {
+  setSuggestions,
+  setSelectedLocation,
+  setLatitude,
+  setLongitude,
+} = locationSlice.actions;
 export default locationSlice.reducer;

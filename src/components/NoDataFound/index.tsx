@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import { NoDataIcon } from '../../Icons/reviews.icons';
+import { NoDataIcon } from "../../icons";
 
-import styles from './no-data-found.module.scss';
+import { NoDataFoundInterface } from "../../interfaces/no-data.interface";
 
-const NoDataFound = ({ text }: { text: string }): JSX.Element => {
+import styles from "./no-data-found.module.scss";
+
+const NoDataFound = ({ text }: NoDataFoundInterface): JSX.Element => {
   return (
     <div className={styles.noDataNoResults}>
       <NoDataIcon />

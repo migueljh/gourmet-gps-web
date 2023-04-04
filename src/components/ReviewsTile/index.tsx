@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { ReviewInfoInterface } from '../../interfaces/reviews.interface';
+import { ReviewInfoInterface } from "../../interfaces/reviews.interface";
 
-import { PeopleReviewIcon } from '../../Icons/reviews.icons';
+import { PeopleReviewIcon } from "../../icons";
 
-import styles from './reviews-tile.module.scss';
+import styles from "./reviews-tile.module.scss";
 
 const ReviewsTile = ({ text }: ReviewInfoInterface): JSX.Element => {
   return (

@@ -1,16 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import { SuggestionsListInterface } from '../../interfaces/search-modal.interface';
+import { SuggestionsListInterface } from "../../interfaces/search-modal.interface";
 
-import { LocationIcon } from '../../Icons';
+import { LocationIcon } from "../../icons";
 
-import styles from './suggestion-list.module.scss';
+import styles from "./suggestion-list.module.scss";
 
-const SuggestionsList = ({ suggestions, onSuggestionClick }: SuggestionsListInterface): JSX.Element => {
+const SuggestionsList = ({
+  suggestions,
+  onSuggestionClick,
+}: SuggestionsListInterface): JSX.Element => {
   return (
     <ul className={styles.suggestionListParent}>
       {suggestions.map((suggestion, idx) => (
-        <li key={idx} onClick={() => onSuggestionClick(suggestion)} className={styles.suggestionList}
+        <li
+          key={idx}
+          onClick={() => onSuggestionClick(suggestion)}
+          className={styles.suggestionList}
         >
           <button className={styles.suggestionListSelectableElement}>
             <i>

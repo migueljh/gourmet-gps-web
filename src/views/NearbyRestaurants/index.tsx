@@ -1,21 +1,25 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect, useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import { getNearbyRestaurants } from '../../controllers/restaurantController';
-import { reverseGeocodeAddress } from '../../services/locationService';
+import { getNearbyRestaurants } from "../../controllers/restaurantController";
+import { reverseGeocodeAddress } from "../../services/locationService";
 
-import { RootState } from '../../store/store';
-import { setLatitude, setLongitude, setSelectedLocation } from '../../store/slices/locationSlice';
-import { setRestaurants } from '../../store/slices/restaurantSlice';
+import { RootState } from "../../store/store";
+import {
+  setLatitude,
+  setLongitude,
+  setSelectedLocation,
+} from "../../store/slices/locationSlice";
+import { setRestaurants } from "../../store/slices/restaurantSlice";
 
-import { Orbit } from '@uiball/loaders';
-import SearchModal from '../../components/SearchModal';
-import RestaurantTile from '../../components/RestaurantTile/index';
-import NoDataFound from '../../components/NoDataFound';
-import Layout from '../../layout/Layout/index';
-import { LocationIcon } from '../../Icons';
+import { Orbit } from "@uiball/loaders";
+import SearchModal from "../../components/SearchModal";
+import RestaurantTile from "../../components/RestaurantTile/index";
+import NoDataFound from "../../components/NoDataFound";
+import Layout from "../../layout/Layout/index";
+import { LocationIcon } from "../../icons";
 
-import styles from './near-restaurants.module.scss';
+import styles from "./near-restaurants.module.scss";
 
 const NearbyRestaurants: React.FC = () => {
   const [renderModal, setRenderModal] = useState<boolean>(false);
@@ -24,13 +28,15 @@ const NearbyRestaurants: React.FC = () => {
 
   const dispatch = useDispatch();
   const { restaurants } = useSelector((state: RootState) => state.restaurants);
-  const { selectedLocation } = useSelector((state: RootState) => state.location);
+  const { selectedLocation } = useSelector(
+    (state: RootState) => state.location
+  );
   const latitude = useSelector((state: RootState) => state.location.latitude);
   const longitude = useSelector((state: RootState) => state.location.longitude);
 
   const fetchRestaurants = useCallback(async () => {
     setLoading(true);
-    setErrorMessage('');
+    setErrorMessage("");
     try {
       const results = await getNearbyRestaurants(selectedLocation);
       dispatch(setRestaurants(results));
@@ -51,14 +57,14 @@ const NearbyRestaurants: React.FC = () => {
           const address = data.features[0].place_name;
           dispatch(setSelectedLocation(address));
         } else {
-          throw new Error('No address found for the given coordinates.');
+          throw new Error("No address found for the given coordinates.");
         }
       } catch (error) {
-        console.error('Error fetching address from coordinates:', error);
+        console.error("Error fetching address from coordinates:", error);
         setErrorMessage(error.message);
       }
     },
-    [dispatch],
+    [dispatch]
   );
 
   useEffect(() => {
@@ -69,7 +75,7 @@ const NearbyRestaurants: React.FC = () => {
 
   useEffect(() => {
     if (latitude && longitude) {
-      setErrorMessage('');
+      setErrorMessage("");
       getNearbyRestaurants(undefined, latitude, longitude)
         .then((restaurants) => {
           dispatch(setRestaurants(restaurants));
@@ -88,31 +94,46 @@ const NearbyRestaurants: React.FC = () => {
         (position) => {
           dispatch(setLatitude(position.coords.latitude));
           dispatch(setLongitude(position.coords.longitude));
-          getAddressFromCoordinates(position.coords.latitude, position.coords.longitude);
+          getAddressFromCoordinates(
+            position.coords.latitude,
+            position.coords.longitude
+          );
         },
         (error) => {
           console.error(error);
           setErrorMessage(error.message);
           setLoading(false);
-        },
+        }
       );
     } else {
       setLoading(false);
-      alert('Geolocation is not supported by this browser.');
+      alert("Geolocation is not supported by this browser.");
     }
   }, [dispatch, getAddressFromCoordinates]);
 
   return (
     <Layout>
       <div className={styles.nearByRestaurantsLandingWrapper}>
-        <button className={styles.nearByRestaurantsButtonToShowModal} onClick={() => setRenderModal(true)}>
+        <button
+          className={styles.nearByRestaurantsButtonToShowModal}
+          onClick={() => setRenderModal(true)}
+        >
           <i>
             <LocationIcon />
           </i>
-          {selectedLocation ? <strong>{selectedLocation}</strong> : <p>Search for an address</p>}
+          {selectedLocation ? (
+            <strong>{selectedLocation}</strong>
+          ) : (
+            <p>Search for an address</p>
+          )}
         </button>
 
-        {renderModal && <SearchModal setIsOpen={setRenderModal} getCurrentLocation={getCurrentLocation} />}
+        {renderModal && (
+          <SearchModal
+            setIsOpen={setRenderModal}
+            getCurrentLocation={getCurrentLocation}
+          />
+        )}
 
         {loading ? (
           <div className={styles.nearByRestaurantsSpinnerContainer}>
@@ -123,7 +144,10 @@ const NearbyRestaurants: React.FC = () => {
             <h2>Restaurants near to you</h2>
             <ul className={styles.nearByRestaurantsParentRestaurantList}>
               {restaurants.map((restaurant) => (
-                <li key={restaurant.id} className={styles.nearByRestaurantsList}>
+                <li
+                  key={restaurant.id}
+                  className={styles.nearByRestaurantsList}
+                >
                   <RestaurantTile
                     id={restaurant.id}
                     name={restaurant.name}

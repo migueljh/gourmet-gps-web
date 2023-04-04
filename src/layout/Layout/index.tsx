@@ -1,5 +1,7 @@
-import Header from "../Header";
 import React from "react";
+
+import Header from "../Header";
+
 import styles from "./layout.module.scss";
 
 const Layout = ({ children }: { children: JSX.Element }): JSX.Element => {

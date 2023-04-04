@@ -32,4 +32,3 @@ export const RatingStarIcon = (): JSX.Element => {
     </svg>
   );
 };
-

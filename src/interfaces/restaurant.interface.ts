@@ -19,14 +19,6 @@ export interface RestaurantDetailsInterface {
 }
 
 export interface RestaurantInfoLocationInterface {
-  address1: string;
-  address2: null;
-  address3: null;
-  city: string;
-  zip_code: string;
-  country: string;
-  state: string;
-  image_url: string;
   display_address: string[];
 }
 

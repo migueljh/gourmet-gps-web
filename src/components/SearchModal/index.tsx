@@ -1,24 +1,35 @@
-import { useCallback, useState, useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useCallback, useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import { getAddressSuggestions } from '../../controllers/locationController';
+import { getAddressSuggestions } from "../../controllers/locationController";
 
-import { setSuggestions, setSelectedLocation, setLatitude, setLongitude } from '../../store/slices/locationSlice';
-import { RootState } from '../../store/store';
+import {
+  setSuggestions,
+  setSelectedLocation,
+  setLatitude,
+  setLongitude,
+} from "../../store/slices/locationSlice";
+import { RootState } from "../../store/store";
 
-import { Orbit } from '@uiball/loaders';
-import { CloseIcon } from '../../Icons';
-import { SearchMapIcon } from '../../Icons/search-modal.icons';
-import NoDataFound from '../NoDataFound';
-import SearchBar from '../SearchBar/index';
-import SuggestionsList from '../SuggestionList/index';
+import { Orbit } from "@uiball/loaders";
+import { CloseIcon, SearchMapIcon } from "../../icons";
 
-import { SearchModalInterface, SuggestionInterface } from '../../interfaces/search-modal.interface';
+import NoDataFound from "../NoDataFound";
+import SearchBar from "../SearchBar/index";
+import SuggestionsList from "../SuggestionList/index";
 
-import styles from './search-modal.module.scss';
+import {
+  SearchModalInterface,
+  SuggestionInterface,
+} from "../../interfaces/search-modal.interface";
 
-const SearchModal = ({ setIsOpen, getCurrentLocation }: SearchModalInterface): JSX.Element => {
-  const [input, setInput] = useState<string>('');
+import styles from "./search-modal.module.scss";
+
+const SearchModal = ({
+  setIsOpen,
+  getCurrentLocation,
+}: SearchModalInterface): JSX.Element => {
+  const [input, setInput] = useState<string>("");
   const [loading, setLoading] = useState(false);
 
   const debounceTimer = useRef<NodeJS.Timeout | null>(null);
@@ -42,9 +53,12 @@ const SearchModal = ({ setIsOpen, getCurrentLocation }: SearchModalInterface): J
     }
   }, [input, dispatch]);
 
-  const handleInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(event.target.value);
-  }, []);
+  const handleInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setInput(event.target.value);
+    },
+    []
+  );
 
   const handleSuggestionClick = useCallback(
     (suggestion: SuggestionInterface) => {
@@ -53,7 +67,7 @@ const SearchModal = ({ setIsOpen, getCurrentLocation }: SearchModalInterface): J
       dispatch(setLongitude(null));
       setIsOpen(false);
     },
-    [dispatch, setIsOpen],
+    [dispatch, setIsOpen]
   );
 
   const debounceFetchSuggestions = useCallback(() => {
@@ -84,10 +98,16 @@ const SearchModal = ({ setIsOpen, getCurrentLocation }: SearchModalInterface): J
 
   return (
     <>
-      <div className={styles.searchModalOpacityBackground} onClick={() => setIsOpen(false)} />
+      <div
+        className={styles.searchModalOpacityBackground}
+        onClick={() => setIsOpen(false)}
+      />
 
       <div className={styles.searchModalWrapper}>
-        <button onClick={() => setIsOpen(false)} aria-label="Close search modal">
+        <button
+          onClick={() => setIsOpen(false)}
+          aria-label="Close search modal"
+        >
           <i>
             <CloseIcon />
           </i>
@@ -97,7 +117,11 @@ const SearchModal = ({ setIsOpen, getCurrentLocation }: SearchModalInterface): J
           <p className={styles.searchModalTitle}>Enter your address</p>
         </header>
 
-        <SearchBar value={input} onChange={handleInputChange} placeholder="Search for an address" />
+        <SearchBar
+          value={input}
+          onChange={handleInputChange}
+          placeholder="Search for an address"
+        />
 
         {input.length === 0 ? (
           <>
@@ -112,10 +136,14 @@ const SearchModal = ({ setIsOpen, getCurrentLocation }: SearchModalInterface): J
               <SearchMapIcon />
               <p
                 className={
-                  isLatitudeAndLongitude ? styles.searchModalActiveLocation : styles.searchModalNotActiveLocation
+                  isLatitudeAndLongitude
+                    ? styles.searchModalActiveLocation
+                    : styles.searchModalNotActiveLocation
                 }
               >
-                {isLatitudeAndLongitude ? 'You are using your current address' : 'I want to use my current address'}
+                {isLatitudeAndLongitude
+                  ? "You are using your current address"
+                  : "I want to use my current address"}
               </p>
             </button>
             <div className={styles.searchModalGreyLine} />
@@ -127,10 +155,13 @@ const SearchModal = ({ setIsOpen, getCurrentLocation }: SearchModalInterface): J
             <Orbit size={35} color="#f8884f" />
           </div>
         ) : suggestions.length > 0 ? (
-          <SuggestionsList suggestions={suggestions} onSuggestionClick={handleSuggestionClick} />
+          <SuggestionsList
+            suggestions={suggestions}
+            onSuggestionClick={handleSuggestionClick}
+          />
         ) : input.length > 0 && suggestions.length === 0 && !loading ? (
           <div className={styles.searchModalNoResults}>
-            <NoDataFound text={'No results found.'} />
+            <NoDataFound text={"No results found."} />
           </div>
         ) : null}
       </div>

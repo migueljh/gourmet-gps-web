@@ -1,6 +1,8 @@
-import styles from './header.module.scss';
-import { DoggyRefreshingIcon } from '../../Icons/header.icons';
-import { Link } from 'react-router-dom';
+import styles from "./header.module.scss";
+
+import { DoggyRefreshingIcon } from "../../icons";
+
+import { Link } from "react-router-dom";
 
 const Header = (): JSX.Element => {
   return (
