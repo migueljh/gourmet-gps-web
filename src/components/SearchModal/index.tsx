@@ -12,16 +12,13 @@ import {
 import { RootState } from "../../store/store";
 
 import { Orbit } from "@uiball/loaders";
-import { CloseIcon, SearchMapIcon } from "../../icons";
+import { CloseIcon, SearchMapIcon } from "../../assets";
 
 import NoDataFound from "../NoDataFound";
 import SearchBar from "../SearchBar/index";
 import SuggestionsList from "../SuggestionList/index";
 
-import {
-  SearchModalInterface,
-  SuggestionInterface,
-} from "../../interfaces";
+import { SearchModalInterface, SuggestionInterface } from "../../interfaces";
 
 import styles from "./search-modal.module.scss";
 

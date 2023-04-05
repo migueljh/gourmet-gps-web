@@ -33,4 +33,6 @@ yarn run dev
 
 Next, check your console and next to Local label you will see the address this project is running at
 
+You can also check the responsive version :)
+
 PS: Most of the logos come from <https://undraw.co/illustrations> and Figma community files from users who have left them for free use.

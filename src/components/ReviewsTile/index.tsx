@@ -2,7 +2,7 @@ import React from "react";
 
 import { ReviewInfoInterface } from "../../interfaces";
 
-import { PeopleReviewIcon } from "../../icons";
+import { PeopleReviewIcon } from "../../assets";
 
 import styles from "./reviews-tile.module.scss";
 

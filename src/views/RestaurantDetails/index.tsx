@@ -15,7 +15,7 @@ import {
 } from "../../interfaces";
 import ReviewsTile from "../../components/ReviewsTile";
 import NoDataFoundComponent from "../../components/NoDataFound/index";
-import { RatingStarIcon } from "../../icons";
+import { RatingStarIcon } from "../../assets";
 
 const RestaurantDetails: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);

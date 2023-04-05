@@ -1,6 +1,6 @@
 import styles from "./header.module.scss";
 
-import { DoggyRefreshingIcon } from "../../icons";
+import { DoggyRefreshingIcon } from "../../assets";
 
 import { Link } from "react-router-dom";
 

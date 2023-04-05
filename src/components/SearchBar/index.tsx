@@ -2,7 +2,7 @@ import React from "react";
 
 import { SearchBarInterface } from "../../interfaces";
 
-import { LocationIcon } from "../../icons";
+import { LocationIcon } from "../../assets";
 
 import styles from "./search-bar.module.scss";
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { RestaurantInfoInterface } from "../../interfaces";
 
-import { RatingStarIcon } from "../../icons";
+import { RatingStarIcon } from "../../assets";
 
 import styles from "./restaurant-tile.module.scss";
 

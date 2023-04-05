@@ -2,7 +2,7 @@ import React from "react";
 
 import { SuggestionsListInterface } from "../../interfaces";
 
-import { LocationIcon } from "../../icons";
+import { LocationIcon } from "../../assets";
 
 import styles from "./suggestion-list.module.scss";
 

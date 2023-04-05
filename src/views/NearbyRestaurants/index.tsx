@@ -17,7 +17,7 @@ import SearchModal from "../../components/SearchModal";
 import RestaurantTile from "../../components/RestaurantTile/index";
 import NoDataFound from "../../components/NoDataFound";
 import Layout from "../../layout/Layout/index";
-import { LocationIcon } from "../../icons";
+import { LocationIcon } from "../../assets";
 
 import styles from "./near-restaurants.module.scss";
 

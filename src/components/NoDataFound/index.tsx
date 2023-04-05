@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NoDataIcon } from "../../icons";
+import { NoDataIcon } from "../../assets";
 
 import { NoDataFoundInterface } from "../../interfaces";
 
