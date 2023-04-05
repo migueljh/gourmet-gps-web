@@ -141,15 +141,7 @@ const NearbyRestaurants: React.FC = () => {
                   key={restaurant.id}
                   className={styles.nearByRestaurantsList}
                 >
-                  <RestaurantTile
-                    id={restaurant.id}
-                    name={restaurant.name}
-                    alias={restaurant.alias}
-                    rating={restaurant.rating}
-                    location={restaurant.location}
-                    image_url={restaurant.image_url}
-                    categories={restaurant.categories}
-                  />
+                  <RestaurantTile {...restaurant} />
                 </li>
               ))}
             </ul>

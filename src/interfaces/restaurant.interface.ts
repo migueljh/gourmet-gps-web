@@ -32,3 +32,11 @@ export interface NearByRestaurantsButtonInterface {
   selectedLocation: string | null;
   setRenderModal: Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface RestaurantInfoCardInterface {
+  image_url: string;
+  categories: Array<{ title: string }>;
+  name: string;
+  rating: number;
+  location: { display_address: Array<string> };
+}

@@ -15,7 +15,7 @@ import {
 } from "../../interfaces";
 import ReviewsTile from "../../components/ReviewsTile";
 import NoDataFoundComponent from "../../components/NoDataFound/index";
-import { RatingStarIcon } from "../../assets";
+import RestaurantInfoCard from "../../components/RestaurantInfoCard";
 
 const RestaurantDetails: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -58,35 +58,7 @@ const RestaurantDetails: React.FC = () => {
           <>
             {restaurantDetails ? (
               <div className={styles.restaurantDetailContainer}>
-                <div className={styles.restaurantDetailTopContainer}>
-                  <img
-                    src={
-                      restaurantDetails.image_url
-                        ? restaurantDetails.image_url
-                        : "/gourmet-gps-logo.svg"
-                    }
-                    className={styles.restaurantDetailBanner}
-                    alt={`restaurant_img`}
-                  />
-
-                  <div className={styles.restaurantDetailRestInfo}>
-                    <span className={styles.restaurantDetailCategoriesBox}>
-                      {restaurantDetails.categories[0].title}
-                    </span>
-                    <h1 className={styles.restaurantDetailsRestTitle}>
-                      {restaurantDetails.name}
-                    </h1>
-
-                    <span className={styles.restaurantDetailsRatingBox}>
-                      <p>{restaurantDetails.rating}</p>
-                      <RatingStarIcon />
-                    </span>
-
-                    <p className={styles.restaurantDetailAddress}>
-                      {restaurantDetails.location.display_address.join(", ")}
-                    </p>
-                  </div>
-                </div>
+                <RestaurantInfoCard {...restaurantDetails} />
               </div>
             ) : null}
 
