@@ -29,7 +29,7 @@ const SearchModal = ({
   const [input, setInput] = useState<string>("");
   const [loading, setLoading] = useState(false);
 
-  const debounceTimer = useRef<NodeJS.Timeout | null>(null);
+  const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const { suggestions } = useSelector((state: RootState) => state.location);
   const latitude = useSelector((state: RootState) => state.location.latitude);
