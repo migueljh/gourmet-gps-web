@@ -5,36 +5,6 @@
   width: 100%;
   padding: 0px 16px;
 
-  .nearByRestaurantsButtonToShowModal {
-    background-color: #fff;
-    border: 1px solid $lavender-color;
-    padding: 16px;
-    max-height: 52px;
-    height: 100%;
-    border-radius: 8px;
-    box-sizing: border-box;
-    outline: 0px;
-    width: 100%;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    column-gap: 8px;
-    font-weight: 500;
-    margin-bottom: 16px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
-    &:hover {
-      border: 1px solid $primary-color;
-      @include hoverTransition();
-    }
-
-    @media screen and (min-width: 560px) {
-      column-gap: 24px;
-    }
-  }
-
   .nearByRestaurantsSpinnerContainer {
     margin-top: 80px;
     display: flex;
@@ -54,6 +24,10 @@
   .nearByRestaurantsList {
     list-style: none;
     width: 100%;
+  }
+
+  .nearByRestaurantsNotFound {
+    margin: 40px;
   }
 
   @media screen and (min-width: 560px) {

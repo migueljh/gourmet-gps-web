@@ -1,5 +1,7 @@
+@use '../../styles/variables' as *;
+
 .reviewsTileContainer {
-  border: 1px solid #ebebeb;
+  border: 1px solid $lavender-color;
   padding: 8px 16px;
   margin-bottom: 8px;
   display: flex;

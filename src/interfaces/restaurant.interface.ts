@@ -1,3 +1,4 @@
+import { Dispatch } from "react";
 export interface RestaurantInfoInterface {
   id: string;
   name: string;
@@ -25,4 +26,9 @@ export interface RestaurantInfoLocationInterface {
 export interface Category {
   alias: string;
   title: string;
+}
+
+export interface NearByRestaurantsButtonInterface {
+  selectedLocation: string | null;
+  setRenderModal: Dispatch<React.SetStateAction<boolean>>;
 }

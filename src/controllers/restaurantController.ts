@@ -10,17 +10,12 @@ import {
 } from "../services/restaurantService";
 
 export const getNearbyRestaurants = async (
-  address?: string,
+  location?: string,
   latitude?: number,
   longitude?: number
 ): Promise<RestaurantInfoInterface[]> => {
   try {
-    const decodedLocation = decodeURIComponent(address).replace(/\+/g, " ");
-    const data = await fetchNearbyRestaurants(
-      decodedLocation,
-      latitude,
-      longitude
-    );
+    const data = await fetchNearbyRestaurants(location, latitude, longitude);
     const restaurants: RestaurantInfoInterface[] = data.businesses.map(
       (restaurant: RestaurantInfoInterface) => ({
         id: restaurant.id,

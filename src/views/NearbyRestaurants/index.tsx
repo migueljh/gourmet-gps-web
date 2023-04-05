@@ -16,8 +16,8 @@ import { Orbit } from "@uiball/loaders";
 import SearchModal from "../../components/SearchModal";
 import RestaurantTile from "../../components/RestaurantTile/index";
 import NoDataFound from "../../components/NoDataFound";
+import NearByRestaurantsButton from "../../components/NearByRestaurantsButton";
 import Layout from "../../layout/Layout/index";
-import { LocationIcon } from "../../assets";
 
 import styles from "./near-restaurants.module.scss";
 
@@ -25,6 +25,7 @@ const NearbyRestaurants: React.FC = () => {
   const [renderModal, setRenderModal] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [searchFinished, setSearchFinished] = useState<boolean>(false);
 
   const dispatch = useDispatch();
   const { restaurants } = useSelector((state: RootState) => state.restaurants);
@@ -40,6 +41,7 @@ const NearbyRestaurants: React.FC = () => {
     try {
       const results = await getNearbyRestaurants(selectedLocation);
       dispatch(setRestaurants(results));
+      setSearchFinished(true);
     } catch (error) {
       console.error(error);
       setErrorMessage(error.message);
@@ -114,19 +116,10 @@ const NearbyRestaurants: React.FC = () => {
   return (
     <Layout>
       <div className={styles.nearByRestaurantsLandingWrapper}>
-        <button
-          className={styles.nearByRestaurantsButtonToShowModal}
-          onClick={() => setRenderModal(true)}
-        >
-          <i>
-            <LocationIcon />
-          </i>
-          {selectedLocation ? (
-            <strong>{selectedLocation}</strong>
-          ) : (
-            <p>Search for an address</p>
-          )}
-        </button>
+        <NearByRestaurantsButton
+          selectedLocation={selectedLocation}
+          setRenderModal={setRenderModal}
+        />
 
         {renderModal && (
           <SearchModal
@@ -161,8 +154,10 @@ const NearbyRestaurants: React.FC = () => {
               ))}
             </ul>
           </div>
-        ) : errorMessage ? (
-          <NoDataFound text={"Sorry, we can't find restaurants near you"} />
+        ) : errorMessage || (searchFinished && restaurants.length === 0) ? (
+          <div className={styles.nearByRestaurantsNotFound}>
+            <NoDataFound text={"Sorry, we can't find restaurants near you"} />
+          </div>
         ) : null}
       </div>
     </Layout>

@@ -74,7 +74,7 @@ const SearchModal = ({
       clearTimeout(debounceTimer.current);
     }
 
-    if (input.trim().length > 0) {
+    if (input.trim().length > 3) {
       debounceTimer.current = setTimeout(() => {
         fetchSuggestions();
       }, 500);
@@ -156,7 +156,7 @@ const SearchModal = ({
             suggestions={suggestions}
             onSuggestionClick={handleSuggestionClick}
           />
-        ) : input.length > 0 && suggestions.length === 0 && !loading ? (
+        ) : input.length > 3 && suggestions.length === 0 && !loading ? (
           <div className={styles.searchModalNoResults}>
             <NoDataFound text={"No results found."} />
           </div>

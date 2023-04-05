@@ -17,11 +17,7 @@ To be able to use the Yelp Fusion API in the frontend of this project I had to c
 Before you run this project please add the environment variables needed to do a properly use of the API's
 
 Create a file called .env.local <- just like that
-and add this variables
-
-VITE_MAPBOX_API_KEY=pk.eyJ1IjoibWlndWVsaG56IiwiYSI6ImNsZnU5eTVrdzA4dnEzZmx1cGVraGdmdWEifQ.SGVrHdp0tnkOGk-naPSSaQ
-
-VITE_GOURMET_GPS_API_BASE_URL=https://gourmet-gps-service.onrender.com
+and add the env variables already provided to you
 
 To install packages run:
 

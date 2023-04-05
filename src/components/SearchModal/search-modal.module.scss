@@ -11,7 +11,7 @@
   width: calc(100% - 16px);
   min-height: 500px;
   z-index: 50;
-  border-radius: 8px;
+  border-radius: $border-radius-value;
 
   .searchModalTitle {
     text-align: center;
@@ -57,7 +57,7 @@
   }
 
   .searchModalGreyLine {
-    border-bottom: 1px solid #ebebff;
+    border-bottom: 1px solid $lavender-color;
   }
 
   .searchModalSpinnerContainer {
