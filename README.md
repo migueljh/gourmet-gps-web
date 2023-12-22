@@ -1,7 +1,5 @@
 ## 👋 Welcome to GourmetGPS
 
-Hello on the other side of the screen, thank you for taking the time to review this challenge.
-
 This project is made in React v18, Typescript, Redux Toolkit and SASS.
 
 The information you will see when running this project comes from 2 APIs:
